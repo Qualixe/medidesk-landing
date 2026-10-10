@@ -10,22 +10,33 @@
 @custom-variant mobile (&:where([data-mobile], [data-mobile] *));
 
 /* ------------------------------------------------------------------ */
-/* Brand tokens — these match the MediDesk desktop app exactly.         */
+/* Brand tokens — taken from the MediDesk logo (design/medidesk-logo-original.png):
+ * mint #5af4e8 → cyan #30d3f6 → azure #0c7cfc → royal #0136da, navy #0a3d8e.  */
 /* ------------------------------------------------------------------ */
 :root {
-  --background: #f6f8fa;
-  --foreground: #0f1d2e;
+  /* logo palette */
+  --brand-mint: #5af4e8;
+  --brand-cyan: #30d3f6;
+  --brand-azure: #0c7cfc;
+  --brand-blue: #0755f5;
+  --brand-royal: #0136da;
+  --brand-navy: #0a3d8e;
+  --brand-gradient: linear-gradient(135deg, #5af4e8 0%, #30d3f6 24%, #0c7cfc 60%, #0136da 100%);
+
+  --background: #f5f8fc;
+  --foreground: #0b1b36;
   --surface: #ffffff;
+  --section: #ffffff;
   --card: #ffffff;
-  --card-foreground: #0f1d2e;
-  --primary: #0e8a8f;
+  --card-foreground: #0b1b36;
+  --primary: #0c7cfc;
   --primary-foreground: #ffffff;
-  --accent: #eef6f6;
-  --accent-foreground: #0a6e73;
-  --brand-soft: #e9f6f6;
-  --muted: #f1f4f7;
-  --muted-foreground: #66748a;
-  --border: #e6eaf0;
+  --accent: #e8f2ff;
+  --accent-foreground: #0149cf;
+  --brand-soft: #e6f4fe;
+  --muted: #eef3f9;
+  --muted-foreground: #5b6b85;
+  --border: #e2e9f2;
   --info: #2f6fde;
   --success: #128a55;
   --warning: #b26b0b;
@@ -35,56 +46,57 @@
 
   /*
    * Accessible companions (WCAG AA ≥ 4.5:1 for small text).
-   * White on --primary is 4.16:1, so filled buttons use --primary-solid
-   * (5.05:1). Teal text uses --accent-foreground. Small secondary text uses
-   * --muted-foreground-aa, a slightly deeper shade of --muted-foreground.
+   * White on the logo's azure (--primary, #0c7cfc) is only 3.96:1, so filled
+   * buttons use the logo's deeper blue #0755f5 (5.79:1) and blue text uses
+   * #0149cf (≥ 6.5:1 on every light surface).
    */
-  --primary-solid: #0b7b80;
-  --primary-solid-hover: #0a6e73;
-  --primary-text: #0a6e73;
-  --muted-foreground-aa: #5b697e;
+  --primary-solid: #0755f5;
+  --primary-solid-hover: #0136da;
+  --primary-text: #0149cf;
+  --muted-foreground-aa: #5b6b85;
   --info-text: #1f5fc9;
   --success-text: #0f7a4c;
   --warning-text: #93580a;
   --violet-text: #6b57cf;
   --destructive-text: #b83a3a;
 
-  --ring: #0e8a8f;
-  --header-bg: rgb(246 248 250 / 0.8);
-  --shadow-color: 15 29 46;
-  --grid-line: rgb(15 29 46 / 0.045);
+  --ring: #0c7cfc;
+  --header-bg: rgb(245 248 252 / 0.8);
+  --shadow-color: 11 27 54;
+  --grid-line: rgb(11 27 54 / 0.045);
   color-scheme: light;
 }
 
 [data-theme="dark"] {
-  --background: #0b1520;
-  --foreground: #e6edf3;
-  --surface: #101c28;
-  --card: #101c28;
-  --card-foreground: #e6edf3;
-  --primary: #0e8a8f;
+  --background: #081530;
+  --foreground: #e7eefa;
+  --surface: #0d1d3a;
+  --section: #0a1936;
+  --card: #0d1d3a;
+  --card-foreground: #e7eefa;
+  --primary: #0c7cfc;
   --primary-foreground: #ffffff;
-  --accent: #0f2a2e;
-  --accent-foreground: #5cc8cc;
-  --brand-soft: #0e2629;
-  --muted: #15222f;
-  --muted-foreground: #9aa8b9;
-  --border: #1e2c3b;
+  --accent: #0f2752;
+  --accent-foreground: #7cc4ff;
+  --brand-soft: #0e2550;
+  --muted: #12244a;
+  --muted-foreground: #9fb0cc;
+  --border: #1c2f55;
 
-  --primary-solid: #0b7b80;
-  --primary-solid-hover: #0e8a8f;
-  --primary-text: #4cc3c8;
-  --muted-foreground-aa: #9aa8b9;
+  --primary-solid: #0b6fe0;
+  --primary-solid-hover: #0755f5;
+  --primary-text: #5cb8ff;
+  --muted-foreground-aa: #9fb0cc;
   --info-text: #7ea9f2;
   --success-text: #5fd39a;
   --warning-text: #f0b45a;
   --violet-text: #a596f0;
   --destructive-text: #f08a8a;
 
-  --ring: #4cc3c8;
-  --header-bg: rgb(11 21 32 / 0.78);
+  --ring: #4fd8f5;
+  --header-bg: rgb(8 21 48 / 0.78);
   --shadow-color: 0 0 0;
-  --grid-line: rgb(230 237 243 / 0.04);
+  --grid-line: rgb(231 238 250 / 0.045);
   color-scheme: dark;
 }
 
@@ -102,6 +114,13 @@
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
   --color-brand-soft: var(--brand-soft);
+  --color-section: var(--section);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-cyan: var(--brand-cyan);
+  --color-brand-azure: var(--brand-azure);
+  --color-brand-blue: var(--brand-blue);
+  --color-brand-royal: var(--brand-royal);
+  --color-brand-navy: var(--brand-navy);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground-aa);
   --color-border: var(--border);
@@ -198,6 +217,21 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* The logo's gradient, for brand surfaces and accent text. */
+.bg-brand-gradient {
+  background-image: var(--brand-gradient);
+}
+.text-brand-gradient {
+  /* azure → royal only: the light mint/cyan end would be too faint as text on white */
+  background-image: linear-gradient(100deg, #0866e6 0%, #0136da 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+[data-theme="dark"] .text-brand-gradient {
+  background-image: linear-gradient(100deg, #5af4e8 0%, #30d3f6 45%, #5cb8ff 100%);
 }
 
 /* Faint grid used behind the hero and on the CTA band. */

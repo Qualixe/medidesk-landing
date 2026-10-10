@@ -17,7 +17,7 @@ export function Pricing() {
   const yearly = period === "yearly";
 
   return (
-    <Section id="pricing" aria-labelledby="pricing-title" className="bg-card dark:bg-[#0d1924]">
+    <Section id="pricing" aria-labelledby="pricing-title" className="bg-section">
       <Container>
         <SectionHeader
           id="pricing-title"
@@ -56,7 +56,7 @@ export function Pricing() {
         </fieldset>
 
         <div className="mx-auto mt-8 max-w-4xl overflow-hidden rounded-[1.25rem] border border-border bg-background shadow-lifted">
-          <div className="h-1 bg-gradient-to-r from-[#0e8a8f] to-[#0a6e73]" aria-hidden="true" />
+          <div className="bg-brand-gradient h-1" aria-hidden="true" />
           <div className="grid md:grid-cols-2">
             <div className="p-7 sm:p-10">
               <h3 className="text-xl font-semibold text-foreground">{t.pricing.planName}</h3>

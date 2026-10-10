@@ -151,7 +151,7 @@ function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; wid
   );
 }
 
-/** On the teal CTA band the form sits on a white panel so its small text stays readable. */
+/** On the blue CTA band the form sits on a white panel so its small text stays readable. */
 function NotifyPanel({ tone }: { tone: Tone }) {
   if (tone === "inverse") {
     return (

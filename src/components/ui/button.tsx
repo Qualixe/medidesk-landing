@@ -7,12 +7,12 @@ export const buttonVariants = cva(
     variants: {
       variant: {
         primary:
-          "bg-primary-solid text-primary-foreground shadow-[0_1px_2px_rgb(10_110_115/0.25),inset_0_1px_0_rgb(255_255_255/0.12)] hover:bg-primary-solid-hover",
+          "bg-primary-solid text-primary-foreground shadow-[0_1px_2px_rgb(7_85_245/0.28),inset_0_1px_0_rgb(255_255_255/0.14)] hover:bg-primary-solid-hover",
         secondary:
           "border border-border bg-card text-foreground shadow-soft hover:border-primary/40 hover:bg-accent",
         ghost: "text-foreground hover:bg-muted",
         inverse:
-          "bg-white text-[#0a5a5e] shadow-[0_1px_2px_rgb(0_0_0/0.15)] hover:bg-[#eef6f6]",
+          "bg-white text-[#0136da] shadow-[0_1px_2px_rgb(0_0_0/0.15)] hover:bg-[#e8f2ff]",
         "inverse-outline":
           "border border-white/35 bg-white/5 text-white hover:border-white/60 hover:bg-white/10",
       },

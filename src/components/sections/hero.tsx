@@ -16,10 +16,10 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(50%_80%_at_20%_0%,color-mix(in_oklab,var(--primary)_10%,transparent),transparent)]"
+        className="absolute inset-x-0 top-0 -z-10 h-[520px] bg-[radial-gradient(40%_70%_at_15%_0%,color-mix(in_oklab,var(--brand-cyan)_14%,transparent),transparent),radial-gradient(45%_70%_at_85%_10%,color-mix(in_oklab,var(--brand-azure)_10%,transparent),transparent)]"
       />
 
-      <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1fr_1.08fr] lg:gap-12 lg:pb-28 lg:pt-24">
+      <Container className="grid items-center gap-14 pb-20 pt-14 sm:pt-20 lg:grid-cols-[1fr_1.12fr] lg:gap-10 lg:pb-28 lg:pt-24">
         <div className="max-w-xl">
           <p className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1 text-[0.8125rem] font-medium text-muted-foreground shadow-soft">
             <span className="size-1.5 rounded-full bg-primary" aria-hidden="true" />
@@ -29,7 +29,7 @@ export function Hero() {
             id="hero-title"
             className="mt-6 text-[2.5rem] font-semibold leading-[1.08] tracking-[-0.025em] text-balance text-foreground sm:text-5xl lg:text-[3.5rem]"
           >
-            {t.hero.titleA} <span className="text-primary-text">{t.hero.titleB}</span>
+            {t.hero.titleA} <span className="text-brand-gradient">{t.hero.titleB}</span>
           </h1>
           <p className="mt-6 max-w-lg text-lg leading-relaxed text-pretty text-muted-foreground">{t.hero.subtitle}</p>
           <DownloadButtons className="mt-9" />
