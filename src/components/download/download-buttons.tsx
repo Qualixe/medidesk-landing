@@ -39,12 +39,9 @@ export function DownloadButtons({
   const inverse = tone === "inverse";
   const center = align === "center";
 
-  const row = cn(
-    "flex flex-col items-stretch gap-3",
-    !stack && "sm:flex-row sm:flex-wrap sm:items-start",
-    !stack && center && "sm:justify-center",
-  );
-  const width = stack ? "w-full" : "w-full sm:w-auto";
+  // Two equal columns (each as wide as the widest button), so both buttons are always the same size.
+  const row = cn("grid items-start gap-3", !stack && "sm:w-fit sm:grid-cols-2");
+  const width = "w-full";
 
   return (
     <div className={cn("flex flex-col gap-4", center && "items-center text-center", className)}>
@@ -65,7 +62,7 @@ export function DownloadButtons({
       </div>
 
       {/* macOS visitors */}
-      <div className={cn(row, "hidden os-mac:flex")}>
+      <div className={cn(row, "hidden os-mac:grid")}>
         <MacButton tone={tone} width={width} primary />
         <WindowsButton tone={tone} width={width} primary={false} />
       </div>
@@ -82,7 +79,7 @@ function WindowsButton({ tone, primary, width }: { tone: Tone; primary: boolean;
       href={downloads.windows.url}
       className={buttonVariants({
         variant: buttonVariant(tone, primary),
-        size: primary ? "lg" : "md",
+        size: "lg",
         className: width,
       })}
     >
@@ -102,7 +99,7 @@ function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; wid
         href={downloads.mac.url}
         className={buttonVariants({
           variant: buttonVariant(tone, primary),
-          size: primary ? "lg" : "md",
+          size: "lg",
           className: width,
         })}
       >
@@ -139,7 +136,7 @@ function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; wid
         onClick={() => setOpen((v) => !v)}
         className={buttonVariants({
           variant: tone === "inverse" ? "inverse-outline" : "secondary",
-          size: "md",
+          size: "lg",
           className: "w-full",
         })}
       >

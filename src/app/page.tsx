@@ -7,7 +7,7 @@ import { Pricing } from "@/components/sections/pricing";
 import { Security } from "@/components/sections/security";
 import { TrustStrip } from "@/components/sections/trust-strip";
 import { downloads } from "@/config/downloads";
-import { pricing } from "@/config/pricing";
+import { plans } from "@/config/pricing";
 import { site } from "@/config/site";
 
 const jsonLd = {
@@ -18,10 +18,14 @@ const jsonLd = {
   applicationCategory: "MedicalApplication",
   operatingSystem: downloads.mac.available ? "Windows 10, Windows 11, macOS 12+" : "Windows 10, Windows 11",
   softwareVersion: downloads.version,
-  offers: [
-    { "@type": "Offer", price: pricing.monthly, priceCurrency: "BDT", name: "Basic (monthly)" },
-    { "@type": "Offer", price: pricing.yearly, priceCurrency: "BDT", name: "Basic (yearly)" },
-  ],
+  offers: plans.flatMap((plan) =>
+    plan.monthly !== null && plan.yearly !== null
+      ? [
+          { "@type": "Offer", price: plan.monthly, priceCurrency: "BDT", name: `${plan.id} (monthly)` },
+          { "@type": "Offer", price: plan.yearly, priceCurrency: "BDT", name: `${plan.id} (yearly)` },
+        ]
+      : [],
+  ),
 };
 
 export default function Home() {

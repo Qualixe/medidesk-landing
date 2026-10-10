@@ -53,7 +53,7 @@ export const downloads: DownloadsConfig = {
     sha256: "REPLACE_WITH_SHA256_OF_WINDOWS_INSTALLER",
   },
   mac: {
-    available: false,
+    available: true,
     url: "https://github.com/your-org/medidesk/releases/latest/download/MediDesk-1.0.0-universal.dmg",
     size: "112 MB",
     fileName: "MediDesk-1.0.0-universal.dmg",
