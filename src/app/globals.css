@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
+/*
+ * Theme switching: an inline script in <head> sets data-theme="light|dark"
+ * (following the system setting unless the visitor picked one), data-os and
+ * data-mobile on <html> before first paint.
+ */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant os-mac (&:where([data-os="mac"], [data-os="mac"] *));
+@custom-variant mobile (&:where([data-mobile], [data-mobile] *));
+
+/* ------------------------------------------------------------------ */
+/* Brand tokens — these match the MediDesk desktop app exactly.         */
+/* ------------------------------------------------------------------ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f6f8fa;
+  --foreground: #0f1d2e;
+  --surface: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #0f1d2e;
+  --primary: #0e8a8f;
+  --primary-foreground: #ffffff;
+  --accent: #eef6f6;
+  --accent-foreground: #0a6e73;
+  --brand-soft: #e9f6f6;
+  --muted: #f1f4f7;
+  --muted-foreground: #66748a;
+  --border: #e6eaf0;
+  --info: #2f6fde;
+  --success: #128a55;
+  --warning: #b26b0b;
+  --violet: #6b57cf;
+  --destructive: #d14343;
+  --radius: 0.75rem;
+
+  /*
+   * Accessible companions (WCAG AA ≥ 4.5:1 for small text).
+   * White on --primary is 4.16:1, so filled buttons use --primary-solid
+   * (5.05:1). Teal text uses --accent-foreground. Small secondary text uses
+   * --muted-foreground-aa, a slightly deeper shade of --muted-foreground.
+   */
+  --primary-solid: #0b7b80;
+  --primary-solid-hover: #0a6e73;
+  --primary-text: #0a6e73;
+  --muted-foreground-aa: #5b697e;
+  --info-text: #1f5fc9;
+  --success-text: #0f7a4c;
+  --warning-text: #93580a;
+  --violet-text: #6b57cf;
+  --destructive-text: #b83a3a;
+
+  --ring: #0e8a8f;
+  --header-bg: rgb(246 248 250 / 0.8);
+  --shadow-color: 15 29 46;
+  --grid-line: rgb(15 29 46 / 0.045);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --background: #0b1520;
+  --foreground: #e6edf3;
+  --surface: #101c28;
+  --card: #101c28;
+  --card-foreground: #e6edf3;
+  --primary: #0e8a8f;
+  --primary-foreground: #ffffff;
+  --accent: #0f2a2e;
+  --accent-foreground: #5cc8cc;
+  --brand-soft: #0e2629;
+  --muted: #15222f;
+  --muted-foreground: #9aa8b9;
+  --border: #1e2c3b;
+
+  --primary-solid: #0b7b80;
+  --primary-solid-hover: #0e8a8f;
+  --primary-text: #4cc3c8;
+  --muted-foreground-aa: #9aa8b9;
+  --info-text: #7ea9f2;
+  --success-text: #5fd39a;
+  --warning-text: #f0b45a;
+  --violet-text: #a596f0;
+  --destructive-text: #f08a8a;
+
+  --ring: #4cc3c8;
+  --header-bg: rgb(11 21 32 / 0.78);
+  --shadow-color: 0 0 0;
+  --grid-line: rgb(230 237 243 / 0.04);
+  color-scheme: dark;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-solid: var(--primary-solid);
+  --color-primary-solid-hover: var(--primary-solid-hover);
+  --color-primary-text: var(--primary-text);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground-aa);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-info: var(--info);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-violet: var(--violet);
+  --color-destructive: var(--destructive);
+  --color-info-text: var(--info-text);
+  --color-success-text: var(--success-text);
+  --color-warning-text: var(--warning-text);
+  --color-violet-text: var(--violet-text);
+  --color-destructive-text: var(--destructive-text);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: 1rem;
+  --radius-2xl: 1.25rem;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft:
+    0 1px 2px rgb(var(--shadow-color) / 0.04), 0 4px 16px -4px rgb(var(--shadow-color) / 0.06);
+  --shadow-lifted:
+    0 1px 2px rgb(var(--shadow-color) / 0.05), 0 12px 32px -8px rgb(var(--shadow-color) / 0.12),
+    0 32px 64px -24px rgb(var(--shadow-color) / 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ------------------------------------------------------------------ */
+/* Base                                                               */
+/* ------------------------------------------------------------------ */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  /*
+   * Noto Sans Bengali is only applied in Bangla mode, so English visitors never
+   * download it; the few Bangla words on the English page use the OS Bengali font.
+   */
+  html:lang(bn) body {
+    font-family: var(--font-inter), var(--font-bengali), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  /* Bangla script needs a little more vertical room. */
+  :lang(bn) body {
+    line-height: 1.65;
+  }
+  :lang(bn) :is(h1, h2, h3) {
+    line-height: 1.3;
+    letter-spacing: 0;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--primary) 22%, transparent);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Faint grid used behind the hero and on the CTA band. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
 }
