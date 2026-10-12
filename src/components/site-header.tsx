@@ -15,7 +15,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   const links = [
-    { href: "/#features", label: t.nav.features },
+    { href: "/#install", label: t.nav.install },
     { href: "/#pricing", label: t.nav.pricing },
     { href: "/#faq", label: t.nav.faq },
   ];

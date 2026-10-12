@@ -17,7 +17,7 @@ export const en = {
     backHome: "Back to home",
   },
   nav: {
-    features: "Features",
+    install: "Installation",
     pricing: "Pricing",
     faq: "FAQ",
     download: "Download",

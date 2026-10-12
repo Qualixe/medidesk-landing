@@ -14,7 +14,7 @@ export const bn: Dictionary = {
     backHome: "হোমে ফিরে যান",
   },
   nav: {
-    features: "ফিচার",
+    install: "ইনস্টলেশন",
     pricing: "মূল্য",
     faq: "প্রশ্নোত্তর",
     download: "ডাউনলোড",
