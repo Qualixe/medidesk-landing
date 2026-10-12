@@ -37,9 +37,9 @@ export default function Home() {
       />
       <Hero />
       <TrustStrip />
-      <Features />
+      {/* <Features /> */}
       <PrescriptionShowcase />
-      <Security />
+
       <Pricing />
       <Faq />
       <FinalCta />

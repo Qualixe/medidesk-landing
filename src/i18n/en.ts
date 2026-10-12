@@ -230,7 +230,7 @@ export const en = {
     perMonth: "/month",
     perYear: "/year",
     save: "Save {amount}",
-    billedMonthly: "Billed monthly by bKash or Nagad",
+    billedMonthly: "Billed monthly via bKash",
     perMonthEquivalent: "Just {amount} a month, billed yearly",
     popular: "Most popular",
     custom: "Custom",
@@ -264,7 +264,7 @@ export const en = {
     allIncludeTitle: "Every plan includes",
     allInclude: [
       "{days}-day free trial",
-      "Pay with bKash or Nagad",
+      "Pay with bKash",
       "Encrypted cloud sync",
       "English & বাংলা",
     ],
@@ -286,7 +286,7 @@ export const en = {
       },
       {
         q: "Which payment methods can I use?",
-        a: "You can pay for your subscription with bKash or Nagad. Inside the app, you can record patient payments made by cash, card, bKash, Nagad or bank transfer.",
+        a: "Subscriptions are paid with bKash for now. Inside the app, you can record patient payments made by cash, card, bKash, Nagad or bank transfer.",
       },
       {
         q: "Can I print on my own pad or letterhead?",
@@ -405,7 +405,7 @@ export const en = {
         },
         {
           h: "Free trial and subscription",
-          p: "[REPLACE THIS TEXT] Describe the free trial, billing periods, payment by bKash/Nagad, renewals and refunds.",
+          p: "[REPLACE THIS TEXT] Describe the free trial, billing periods, payment by bKash, renewals and refunds.",
         },
         {
           h: "Acceptable use",

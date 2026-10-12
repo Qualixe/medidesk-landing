@@ -47,13 +47,13 @@ export const downloads: DownloadsConfig = {
   releaseDate: "2026-10-01",
   releaseNotesUrl: "https://github.com/your-org/medidesk/releases/latest",
   windows: {
-    url: "https://github.com/your-org/medidesk/releases/latest/download/MediDesk-Setup-1.0.0-x64.exe",
-    size: "86 MB",
-    fileName: "MediDesk-Setup-1.0.0-x64.exe",
+    url: "https://medidesk-downloads-production.up.railway.app/download",
+    size: "108 MB",
+    fileName: "MediDesk Setup.exe",
     sha256: "REPLACE_WITH_SHA256_OF_WINDOWS_INSTALLER",
   },
   mac: {
-    available: true,
+    available: false,
     url: "https://github.com/your-org/medidesk/releases/latest/download/MediDesk-1.0.0-universal.dmg",
     size: "112 MB",
     fileName: "MediDesk-1.0.0-universal.dmg",

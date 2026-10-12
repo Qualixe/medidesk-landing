@@ -120,11 +120,11 @@ export function DownloadPage() {
           <div className="mt-5 grid gap-4 md:grid-cols-2 [&>*]:min-w-0">
             <div>
               <p className="text-[0.8125rem] font-medium text-foreground">{d.verifyWindows}</p>
-              <Code>{`Get-FileHash .\\${downloads.windows.fileName} -Algorithm SHA256`}</Code>
+              <Code>{`Get-FileHash ".\\${downloads.windows.fileName}" -Algorithm SHA256`}</Code>
             </div>
             <div>
               <p className="text-[0.8125rem] font-medium text-foreground">{d.verifyMac}</p>
-              <Code>{`shasum -a 256 ~/Downloads/${downloads.mac.fileName}`}</Code>
+              <Code>{`shasum -a 256 "$HOME/Downloads/${downloads.mac.fileName}"`}</Code>
             </div>
           </div>
         </section>
