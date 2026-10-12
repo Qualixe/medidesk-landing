@@ -39,7 +39,7 @@ export default function Home() {
       />
       <Hero />
       <StatsRibbon />
-      <InstallSteps />
+      {/* <InstallSteps /> */}
      {/* <TrustStrip /> */}
       {/* <Features /> */}
       <PrescriptionShowcase />

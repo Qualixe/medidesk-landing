@@ -35,7 +35,7 @@ export const plans: Plan[] = [
     popular: true,
     cta: "trial",
     features: [
-    
+
       ["patients", true],
       ["core", true],
       ["bangla", true],
@@ -49,7 +49,6 @@ export const plans: Plan[] = [
   },
   {
     id: "pro",
-    // planned prices — Pro can't be bought yet
     monthly: 2000,
     yearly: 20000,
     cta: "soon",

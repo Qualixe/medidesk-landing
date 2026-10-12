@@ -340,6 +340,31 @@ export const en = {
       },
     ],
   },
+  installPage: {
+    eyebrow: "Installation guide",
+    title: "Install MediDesk on Windows",
+    subtitle: "Download, install and start your free {days}-day trial in a few minutes.",
+    stepsEyebrow: "Steps 1–4",
+    stepsTitle: "Install the app",
+    stepsSubtitle: "Windows warns about new apps. Here's exactly what to click.",
+    afterTitle: "After installing",
+    after: [
+      {
+        title: "Create your clinic account",
+        body: "Open MediDesk and sign up with your name, email address and a password. You become the clinic's owner.",
+      },
+      {
+        title: "Verify your email",
+        body: "Enter the code we send to your email address.",
+      },
+      {
+        title: "Start your free trial",
+        body: "Your {days}-day free trial starts with every feature unlocked. No payment details needed.",
+      },
+    ],
+    requirementsTitle: "Windows requirements",
+    help: "Stuck? Email {email} or WhatsApp {whatsapp} and we'll help you get set up.",
+  },
   cta: {
     title: "Give your chamber a calmer day.",
     subtitle: "Try every feature free for {days} days.",
