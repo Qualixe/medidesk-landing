@@ -15,7 +15,7 @@ npm run lint
 
 | What | File |
 | --- | --- |
-| Download version, release date, installer URLs, sizes, checksums, macOS availability | `src/config/downloads.ts` |
+| Download version, release date, installer URLs, sizes, macOS availability | `src/config/downloads.ts` |
 | Site URL, support email, WhatsApp number | `src/config/site.ts` |
 | Prices and trial length | `src/config/pricing.ts` |
 | **All page copy** (English) | `src/i18n/en.ts` |

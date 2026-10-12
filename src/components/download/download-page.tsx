@@ -1,7 +1,6 @@
 "use client";
 
-import { useState } from "react";
-import { ArrowRight, Check, Copy, Info, ShieldAlert } from "lucide-react";
+import { Check, Info, ShieldAlert } from "lucide-react";
 import { AppleIcon, WindowsIcon } from "@/components/brand/os-icons";
 import { buttonVariants } from "@/components/ui/button";
 import { Container, Eyebrow } from "@/components/section";
@@ -32,13 +31,6 @@ export function DownloadPage() {
             {fill(d.subtitle, { days: num(pricing.trialDays) })}
           </p>
           <p className="mt-4 hidden text-sm text-muted-foreground mobile:block">{t.download.mobileNote}</p>
-          <a
-            href={downloads.releaseNotesUrl}
-            className="mt-4 inline-flex items-center gap-1 rounded-sm text-sm font-medium text-primary-text hover:underline"
-          >
-            {d.releaseNotes}
-            <ArrowRight className="size-4" aria-hidden="true" />
-          </a>
         </header>
 
         {/* Platform cards — the visitor's OS is shown first */}
@@ -104,24 +96,6 @@ export function DownloadPage() {
               note={d.macNote}
               noteTone="info"
             />
-          </div>
-        </section>
-
-        {/* Verify */}
-        <section aria-labelledby="verify-title" className="mx-auto mt-16 max-w-4xl rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8">
-          <h2 id="verify-title" className="text-lg font-semibold text-foreground">
-            {d.verifyTitle}
-          </h2>
-          <p className="mt-2 text-sm text-muted-foreground">{d.verifyBody}</p>
-          <div className="mt-5 grid gap-4 md:grid-cols-2 [&>*]:min-w-0">
-            <div>
-              <p className="text-[0.8125rem] font-medium text-foreground">{d.verifyWindows}</p>
-              <Code>{`Get-FileHash ".\\${downloads.windows.fileName}" -Algorithm SHA256`}</Code>
-            </div>
-            <div>
-              <p className="text-[0.8125rem] font-medium text-foreground">{d.verifyMac}</p>
-              <Code>{`shasum -a 256 "$HOME/Downloads/${downloads.mac.fileName}"`}</Code>
-            </div>
           </div>
         </section>
 
@@ -196,46 +170,7 @@ function PlatformCard({
 
       <div className="mt-7">{action}</div>
 
-      {available && (
-        <dl className="mt-6 grid gap-2 border-t border-border pt-5 text-[0.8125rem]">
-          <div className="flex gap-2">
-            <dt className="w-16 shrink-0 text-muted-foreground">{d.file}</dt>
-            <dd className="min-w-0 break-all font-mono text-[0.75rem] text-foreground">{info.fileName}</dd>
-          </div>
-          <div className="flex items-start gap-2">
-            <dt className="w-16 shrink-0 text-muted-foreground">{d.checksum}</dt>
-            <dd className="flex min-w-0 flex-1 items-start gap-2">
-              <code className="min-w-0 flex-1 break-all font-mono text-[0.75rem] text-foreground">{info.sha256}</code>
-              <CopyButton value={info.sha256} />
-            </dd>
-          </div>
-        </dl>
-      )}
     </article>
-  );
-}
-
-function CopyButton({ value }: { value: string }) {
-  const { t } = useI18n();
-  const [copied, setCopied] = useState(false);
-  return (
-    <button
-      type="button"
-      onClick={async () => {
-        try {
-          await navigator.clipboard.writeText(value);
-          setCopied(true);
-          setTimeout(() => setCopied(false), 1800);
-        } catch {
-          /* clipboard unavailable */
-        }
-      }}
-      aria-label={copied ? t.downloadPage.copied : t.downloadPage.copy}
-      title={t.downloadPage.copy}
-      className="-mt-1 inline-flex size-7 shrink-0 items-center justify-center rounded-md text-muted-foreground hover:bg-muted hover:text-foreground"
-    >
-      {copied ? <Check className="size-4 text-success-text" aria-hidden="true" /> : <Copy className="size-4" aria-hidden="true" />}
-    </button>
   );
 }
 
@@ -284,13 +219,5 @@ function InstallSteps({
         {note}
       </p>
     </article>
-  );
-}
-
-function Code({ children }: { children: string }) {
-  return (
-    <pre className="mt-2 overflow-x-auto rounded-lg border border-border bg-muted px-3 py-2.5 font-mono text-[0.75rem] text-foreground">
-      <code>{children}</code>
-    </pre>
   );
 }
