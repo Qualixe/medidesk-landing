@@ -3,6 +3,9 @@
  * (TypeScript will complain if a key is missing).
  * Placeholders in {curly braces} are filled in at render time.
  */
+import { privacyPolicy } from "./privacy-policy";
+import { termsOfService } from "./terms-of-service";
+
 export const en = {
   common: {
     skipToContent: "Skip to content",
@@ -285,7 +288,7 @@ export const en = {
       },
       {
         q: "Is my patient data safe?",
-        a: "Your data is encrypted in transit and at rest, and kept isolated from every other clinic. Only the people you add to your clinic can access it, and each person only sees what their role allows.",
+        a: "Your data travels over an encrypted connection (HTTPS) and is kept separate from every other clinic. Only the people you add to your clinic can access it, and each person only sees what their role allows.",
       },
       {
         q: "Does it run on Mac or Windows?",
@@ -380,68 +383,8 @@ export const en = {
     placeholderBody:
       "This page is a template. Have it reviewed and replaced with your real policy (ideally by a lawyer) before publishing the site.",
     lastUpdated: "Last updated: {date}",
-    privacy: {
-      title: "Privacy Policy",
-      intro:
-        "[REPLACE THIS TEXT] This policy explains what information MediDesk collects, why we collect it and how we protect it.",
-      sections: [
-        {
-          h: "Information we collect",
-          p: "[REPLACE THIS TEXT] Describe the account details (name, email, phone, clinic name) and the clinical data your users store in the app.",
-        },
-        {
-          h: "How we use information",
-          p: "[REPLACE THIS TEXT] Explain that data is used only to provide the service, sync between devices, process payments and provide support.",
-        },
-        {
-          h: "How we protect patient data",
-          p: "[REPLACE THIS TEXT] Describe encryption, per-clinic isolation, role-based access and where data is hosted.",
-        },
-        {
-          h: "Sharing and disclosure",
-          p: "[REPLACE THIS TEXT] State that you never sell patient data, and list any service providers (hosting, payments) that process data on your behalf.",
-        },
-        {
-          h: "Data retention and deletion",
-          p: "[REPLACE THIS TEXT] Explain how long data is kept and how a clinic can export or delete its data.",
-        },
-        {
-          h: "Contact",
-          p: "[REPLACE THIS TEXT] Questions about privacy? Email {email}.",
-        },
-      ],
-    },
-    terms: {
-      title: "Terms of Service",
-      intro:
-        "[REPLACE THIS TEXT] These terms govern your use of the MediDesk desktop application and related services.",
-      sections: [
-        {
-          h: "Your account",
-          p: "[REPLACE THIS TEXT] Describe who may create an account and the account holder's responsibilities.",
-        },
-        {
-          h: "Free trial and subscription",
-          p: "[REPLACE THIS TEXT] Describe the free trial, billing periods, payment by bKash, renewals and refunds.",
-        },
-        {
-          h: "Acceptable use",
-          p: "[REPLACE THIS TEXT] List what users may not do with the software.",
-        },
-        {
-          h: "Clinical responsibility",
-          p: "[REPLACE THIS TEXT] Clarify that MediDesk is a record-keeping tool and clinical decisions remain the responsibility of the practitioner.",
-        },
-        {
-          h: "Limitation of liability",
-          p: "[REPLACE THIS TEXT] Add your limitation of liability and governing law (e.g. the laws of Bangladesh).",
-        },
-        {
-          h: "Contact",
-          p: "[REPLACE THIS TEXT] Questions about these terms? Email {email}.",
-        },
-      ],
-    },
+    privacy: privacyPolicy,
+    terms: termsOfService,
   },
   notFound: {
     title: "Page not found",
