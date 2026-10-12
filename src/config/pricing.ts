@@ -35,7 +35,7 @@ export const plans: Plan[] = [
     popular: true,
     cta: "trial",
     features: [
-      ["oneDoctor", true],
+    
       ["patients", true],
       ["core", true],
       ["bangla", true],
