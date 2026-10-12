@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { Check, Monitor } from "lucide-react";
 import { AppleIcon, WindowsIcon } from "@/components/brand/os-icons";
 import { buttonVariants } from "@/components/ui/button";
@@ -166,41 +165,20 @@ function buttonVariant(tone: Tone, primary: boolean) {
 }
 
 function DownloadMeta({ tone, center }: { tone: Tone; center: boolean }) {
-  const { t, num, date } = useI18n();
+  const { t, num } = useI18n();
   const inverse = tone === "inverse";
   const muted = inverse ? "text-white/85" : "text-muted-foreground";
 
   return (
     <div className={cn("flex flex-col gap-1.5 text-[0.8125rem]", muted, center && "items-center")}>
-      <p className={cn("flex flex-wrap gap-x-2 gap-y-1", center && "justify-center")}>
-        <span>{fill(t.download.version, { version: num(downloads.version) })}</span>
-        <span aria-hidden="true">·</span>
-        <span>{fill(t.download.released, { date: date(downloads.releaseDate) })}</span>
-        <span aria-hidden="true">·</span>
-        <Link
-          href="/download"
-          className={cn(
-            "underline decoration-current/30 underline-offset-[3px] hover:decoration-current",
-            inverse ? "text-white" : "text-primary-text",
-          )}
-        >
-          {t.download.allOptions}
-        </Link>
-      </p>
-      <p className={cn("flex flex-wrap gap-x-4 gap-y-1", center && "justify-center")}>
-        <span className="inline-flex items-center gap-1.5">
-          <WindowsIcon className="size-3.5" />
-          {t.download.reqWindows} · {num(downloads.windows.size)}
-        </span>
-        <span className="inline-flex items-center gap-1.5">
-          <AppleIcon className="size-3.5" />
-          {t.download.reqMac}
-          {downloads.mac.available && <> · {num(downloads.mac.size)}</>}
-        </span>
-      </p>
       <p className={cn("inline-flex items-center gap-1.5 font-medium", inverse ? "text-white" : "text-foreground")}>
         <Check className={cn("size-4", inverse ? "text-white" : "text-primary")} aria-hidden="true" />
         {fill(t.download.trial, { days: num(pricing.trialDays) })}
+      </p>
+      <p>
+        {fill(t.download.version, { version: num(downloads.version) })} · {t.download.reqWindows} ·{" "}
+        {num(downloads.windows.size)}
+        {downloads.mac.available && <> · {t.download.reqMac}</>}
       </p>
     </div>
   );

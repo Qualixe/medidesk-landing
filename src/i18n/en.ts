@@ -69,10 +69,10 @@ export const en = {
     newAppointment: "New appointment",
     newPatient: "New patient",
     stats: [
-      { label: "Today's patients", value: "24", note: "+4 vs yesterday" },
-      { label: "Today's appointments", value: "18", note: "12 of 18 completed" },
+      { label: "Patients", value: "24", note: "+4 vs yesterday" },
+      { label: "Appointments", value: "18", note: "12 of 18 completed" },
       { label: "Waiting", value: "6", note: "Waiting or scheduled" },
-      { label: "Today's income", value: "৳18,400", note: "Cash, bKash & Nagad" },
+      { label: "Income", value: "৳18,400", note: "Cash, bKash & Nagad" },
     ],
     queueTitle: "Today's appointments",
     queueSub: "18 booked for today",
