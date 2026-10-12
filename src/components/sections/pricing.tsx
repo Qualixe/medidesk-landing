@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Check, Hospital, Sparkles, User, Users, X } from "lucide-react";
+import { Bell, Check, Clock, Hospital, Sparkles, User, Users, X } from "lucide-react";
 import { Reveal } from "@/components/motion";
 import { buttonVariants } from "@/components/ui/button";
 import { Container, Section, SectionHeader } from "@/components/section";
@@ -88,6 +88,7 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
   const copy = t.pricing.plans[plan.id];
   const Icon = PLAN_ICONS[plan.id];
   const popular = !!plan.popular;
+  const soon = plan.cta === "notify";
   const yearly = period === "yearly";
 
   return (
@@ -104,6 +105,12 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
         <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full bg-primary-solid px-3.5 py-1 text-xs font-semibold text-white shadow-soft">
           <Sparkles className="size-3.5" aria-hidden="true" />
           {t.pricing.popular}
+        </span>
+      )}
+      {soon && (
+        <span className="absolute -top-3.5 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 whitespace-nowrap rounded-full border border-violet/30 bg-card px-3.5 py-1 text-xs font-semibold text-violet-text shadow-soft">
+          <Clock className="size-3.5" aria-hidden="true" />
+          {t.pricing.comingSoon}
         </span>
       )}
 
@@ -147,9 +154,11 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
               <span className="text-base text-muted-foreground">{yearly ? t.pricing.perYear : t.pricing.perMonth}</span>
             </p>
             <p className="mt-2 text-sm text-muted-foreground">
-              {yearly
-                ? fill(t.pricing.perMonthEquivalent, { amount: taka(Math.round(plan.yearly / 12)) })
-                : t.pricing.billedMonthly}
+              {soon
+                ? t.pricing.availableSoon
+                : yearly
+                  ? fill(t.pricing.perMonthEquivalent, { amount: taka(Math.round(plan.yearly / 12)) })
+                  : t.pricing.billedMonthly}
             </p>
           </>
         )}
@@ -163,6 +172,14 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
         >
           {fill(t.pricing.ctaTrial, { days: num(pricing.trialDays) })}
         </Link>
+      ) : soon ? (
+        <a
+          href={`mailto:${site.supportEmail}?subject=${encodeURIComponent(t.pricing.notifySubject)}`}
+          className={buttonVariants({ variant: "secondary", size: "lg", className: "mt-6 w-full" })}
+        >
+          <Bell aria-hidden="true" />
+          {t.pricing.ctaNotify}
+        </a>
       ) : (
         <a
           href={`mailto:${site.supportEmail}?subject=${encodeURIComponent(t.pricing.contactSubject)}`}
@@ -176,25 +193,30 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
       <div className="mt-8 border-t border-border pt-6">
         <p className="text-sm font-semibold text-foreground">{t.pricing.includesTitle}</p>
         <ul className="mt-4 flex flex-col gap-3">
-          {plan.features.map(([key, included]) => (
+          {plan.features.map(([key, state]) => (
             <li
               key={key}
-              className={cn("flex items-start gap-3 text-sm", included ? "text-foreground" : "text-muted-foreground")}
+              className={cn("flex items-start gap-3 text-sm", state === false ? "text-muted-foreground" : "text-foreground")}
             >
               <span
                 className={cn(
                   "mt-px flex size-5 shrink-0 items-center justify-center rounded-full",
-                  included ? "bg-brand-soft text-primary-text" : "bg-muted text-muted-foreground",
+                  state === true && "bg-brand-soft text-primary-text",
+                  state === "soon" && "bg-violet/10 text-violet-text",
+                  state === false && "bg-muted text-muted-foreground",
                 )}
               >
-                {included ? (
+                {state === true ? (
                   <Check className="size-3.5" aria-hidden="true" />
+                ) : state === "soon" ? (
+                  <Clock className="size-3" aria-hidden="true" />
                 ) : (
                   <X className="size-3" aria-hidden="true" />
                 )}
               </span>
               <span>
-                {!included && <span className="sr-only">{t.pricing.notIncluded}: </span>}
+                {state === false && <span className="sr-only">{t.pricing.notIncluded}: </span>}
+                {state === "soon" && <span className="sr-only">{t.pricing.soonLabel}: </span>}
                 {t.pricing.features[key]}
               </span>
             </li>

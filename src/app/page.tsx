@@ -2,12 +2,13 @@ import { Faq } from "@/components/sections/faq";
 import { Features } from "@/components/sections/features";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
+import { InstallSteps } from "@/components/sections/install-steps";
 import { PrescriptionShowcase } from "@/components/sections/prescription-showcase";
 import { Pricing } from "@/components/sections/pricing";
 import { Security } from "@/components/sections/security";
 import { TrustStrip } from "@/components/sections/trust-strip";
 import { downloads } from "@/config/downloads";
-import { plans } from "@/config/pricing";
+import { availablePlans } from "@/config/pricing";
 import { site } from "@/config/site";
 
 const jsonLd = {
@@ -18,7 +19,7 @@ const jsonLd = {
   applicationCategory: "MedicalApplication",
   operatingSystem: downloads.mac.available ? "Windows 10, Windows 11, macOS 12+" : "Windows 10, Windows 11",
   softwareVersion: downloads.version,
-  offers: plans.flatMap((plan) =>
+  offers: availablePlans.flatMap((plan) =>
     plan.monthly !== null && plan.yearly !== null
       ? [
           { "@type": "Offer", price: plan.monthly, priceCurrency: "BDT", name: `${plan.id} (monthly)` },
@@ -36,6 +37,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <Hero />
+      <InstallSteps />
       <TrustStrip />
       {/* <Features /> */}
       <PrescriptionShowcase />
