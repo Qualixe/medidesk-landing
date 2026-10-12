@@ -29,14 +29,6 @@ export const en = {
     reqWindows: "Windows 10/11 (64-bit)",
     reqMac: "macOS 12+ (Apple Silicon & Intel)",
     trial: "Free {days}-day trial — no payment details needed",
-    notifyLabel: "Email me when the Mac version is ready",
-    notifyPlaceholder: "you@clinic.com",
-    notifyButton: "Notify me",
-    notifySending: "Sending…",
-    notifySuccess: "Thanks! We'll email you when MediDesk for macOS is ready.",
-    notifyMailto: "Your email app should open — just press send.",
-    notifyError: "Something went wrong. Please email us instead.",
-    notifyInvalid: "Please enter a valid email address.",
     mobileNote:
       "MediDesk is a desktop app. Open this page on your Windows PC or Mac to install it.",
     allOptions: "All download options",
@@ -45,8 +37,7 @@ export const en = {
     eyebrow: "Practice management for doctors in Bangladesh",
     titleA: "Run your chamber,",
     titleB: "not paperwork.",
-    subtitle:
-      "Patients, appointments, prescriptions and billing in one calm desktop app — built for doctors and small clinics, in English and Bangla.",
+    subtitle: "Patients, appointments, prescriptions and billing in one desktop app — in English and Bangla.",
     mockupLabel:
       "Illustration of the MediDesk dashboard showing today's patient queue, stat cards and a revenue chart.",
   },
@@ -100,8 +91,7 @@ export const en = {
   features: {
     eyebrow: "Features",
     title: "Everything your chamber runs on",
-    subtitle:
-      "From the first patient of the morning to the last receipt at night — one app, no paper registers, no spreadsheets.",
+    subtitle: "One app, from the first patient to the last receipt.",
     items: [
       {
         title: "Patients",
@@ -140,8 +130,7 @@ export const en = {
   rx: {
     eyebrow: "Prescriptions",
     title: "A prescription in 30 seconds",
-    subtitle:
-      "Clean, legible prescriptions on your own letterhead — no more handwriting the same medicines forty times a day.",
+    subtitle: "Clean prescriptions on your own letterhead.",
     steps: [
       {
         title: "Pick the patient from the queue",
@@ -196,8 +185,7 @@ export const en = {
   security: {
     eyebrow: "Security & privacy",
     title: "Medical data, treated as sensitive",
-    subtitle:
-      "Patient records are some of the most personal data there is. MediDesk is designed around that from the start.",
+    subtitle: "Patient records are personal. MediDesk is built around that.",
     items: [
       {
         title: "Cloud sync, isolated per clinic",
@@ -221,8 +209,8 @@ export const en = {
   },
   pricing: {
     eyebrow: "Pricing",
-    title: "Plans for every chamber and clinic",
-    subtitle: "Start free for {days} days — no payment details needed. Upgrade or switch any time.",
+    title: "Simple pricing for your chamber",
+    subtitle: "Free for {days} days. No payment details needed.",
     monthly: "Monthly",
     yearly: "Yearly",
     billingLabel: "Billing period",
@@ -232,35 +220,32 @@ export const en = {
     save: "Save {amount}",
     billedMonthly: "Billed monthly via bKash",
     perMonthEquivalent: "Just {amount} a month, billed yearly",
-    popular: "Most popular",
+    popular: "Available now",
     custom: "Custom",
     customNote: "Priced for the size of your clinic",
     ctaTrial: "Start {days}-day free trial",
     ctaContact: "Contact us",
     contactSubject: "MediDesk Clinic plan",
     comingSoon: "Coming soon",
-    availableSoon: "Launching soon",
-    ctaNotify: "Notify me",
-    notifySubject: "Notify me when MediDesk Pro launches",
+    availableSoon: "Planned price · launching soon",
     includesTitle: "What's included",
     notIncluded: "Not included",
     soonLabel: "Coming soon",
     plans: {
-      basic: { name: "Basic", desc: "For a doctor running their own chamber." },
+      basic: { name: "Basic", desc: "Everything a doctor needs to run their own chamber." },
       pro: { name: "Pro", desc: "Take your chamber online: video visits, your own page and online booking." },
-      clinic: { name: "Clinic", desc: "For hospitals and multi-doctor clinics with bigger teams." },
     },
     features: {
-      doctors1: "1 doctor",
-      doctorsUnlimited: "Unlimited doctors",
-      device1: "1 device",
-      devicesUnlimited: "Unlimited devices",
+      oneDoctor: "1 doctor on 1 computer",
       patients: "Unlimited patients",
-      core: "Appointments, prescriptions & billing",
-      bangla: "Bangla printouts",
-      staff: "Receptionist & staff accounts",
-      setup: "On-site setup & staff training",
-      migration: "Import data from your old system",
+      core: "Patients, appointments, consultations, prescriptions, billing & reports",
+      bangla: "Bangla app and printouts",
+      offline: "Works offline and syncs later",
+      templates: "Prescription templates",
+      advancedReports: "Advanced reports",
+      excelExport: "Excel export",
+      noBranding: "No MediDesk branding on printouts",
+      prioritySupport: "Priority WhatsApp support",
       everythingInBasic: "Everything in Basic",
       videoConsultation: "Video consultation",
       landingPage: "Personal landing page",
@@ -278,7 +263,7 @@ export const en = {
   faq: {
     eyebrow: "FAQ",
     title: "Questions, answered",
-    subtitle: "Can't find what you're looking for? Get in touch — a real person will reply.",
+    subtitle: "Still stuck? Get in touch.",
     macAvailable: "It also runs on macOS 12 or later, on both Apple Silicon and Intel Macs.",
     macSoon: "A macOS version (macOS 12 or later, Apple Silicon and Intel) is coming soon.",
     items: [
@@ -288,7 +273,7 @@ export const en = {
       },
       {
         q: "Does it work offline?",
-        a: "Not yet. MediDesk currently needs an internet connection to sync your data. Offline mode is coming soon.",
+        a: "Yes. MediDesk keeps working without an internet connection and syncs your data later, when you are back online.",
       },
       {
         q: "Which payment methods can I use?",
@@ -316,11 +301,19 @@ export const en = {
       },
     ],
   },
+  stats: {
+    label: "MediDesk in numbers",
+    labels: {
+      doctors: "Doctors",
+      downloads: "Downloads",
+      patients: "Patients",
+      clinics: "Clinics",
+    },
+  },
   install: {
     eyebrow: "Installation",
     title: "Install in 4 easy steps",
-    subtitle:
-      "Windows shows a safety warning for new apps it hasn't seen before. That's normal — here's exactly what to click.",
+    subtitle: "Windows warns about new apps. Here's what to click.",
     steps: [
       {
         title: "Click “More info”",
@@ -346,7 +339,7 @@ export const en = {
   },
   cta: {
     title: "Give your chamber a calmer day.",
-    subtitle: "Download MediDesk and try every feature free for {days} days.",
+    subtitle: "Try every feature free for {days} days.",
   },
   footer: {
     links: {
@@ -358,7 +351,7 @@ export const en = {
   },
   downloadPage: {
     title: "Download MediDesk",
-    subtitle: "Install MediDesk on your computer and start your free {days}-day trial.",
+    subtitle: "Install MediDesk and start your free {days}-day trial.",
     latest: "Latest version {version} · released {date}",
     releaseNotes: "Release notes",
     file: "File",

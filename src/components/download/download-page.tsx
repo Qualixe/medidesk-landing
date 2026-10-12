@@ -10,7 +10,6 @@ import { pricing } from "@/config/pricing";
 import { site, whatsappUrl } from "@/config/site";
 import { fill, useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
-import { NotifyForm } from "./notify-form";
 
 export function DownloadPage() {
   const { t, num, date } = useI18n();
@@ -29,7 +28,7 @@ export function DownloadPage() {
           <h1 className="mt-3 text-4xl font-semibold tracking-tight text-balance text-foreground sm:text-5xl">
             {d.title}
           </h1>
-          <p className="mt-4 text-lg text-pretty text-muted-foreground">
+          <p className="mt-3 text-base text-pretty text-muted-foreground">
             {fill(d.subtitle, { days: num(pricing.trialDays) })}
           </p>
           <p className="mt-4 hidden text-sm text-muted-foreground mobile:block">{t.download.mobileNote}</p>
@@ -57,7 +56,7 @@ export function DownloadPage() {
             }
           />
           <PlatformCard
-            className="os-mac:order-first"
+            className={cn(macReady && "os-mac:order-first")}
             icon={<AppleIcon className="size-6" />}
             name="macOS"
             reqs={d.macReqs}
@@ -70,18 +69,15 @@ export function DownloadPage() {
                   {t.download.forMac}
                 </a>
               ) : (
-                <div className="flex flex-col gap-4">
-                  <span
-                    className={cn(
-                      buttonVariants({ variant: "secondary", size: "lg" }),
-                      "pointer-events-none w-full cursor-default",
-                    )}
-                  >
-                    <AppleIcon />
-                    {t.download.macSoon}
-                  </span>
-                  <NotifyForm className="max-w-none" />
-                </div>
+                <span
+                  className={cn(
+                    buttonVariants({ variant: "secondary", size: "lg" }),
+                    "pointer-events-none w-full cursor-default",
+                  )}
+                >
+                  <AppleIcon />
+                  {t.download.macSoon}
+                </span>
               )
             }
           />
@@ -101,7 +97,7 @@ export function DownloadPage() {
               noteTone="warning"
             />
             <InstallSteps
-              className="os-mac:order-first"
+              className={cn(macReady && "os-mac:order-first")}
               icon={<AppleIcon className="size-5" />}
               title="macOS"
               steps={d.macSteps}

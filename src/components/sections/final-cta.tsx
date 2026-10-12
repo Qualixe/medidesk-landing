@@ -27,7 +27,7 @@ export function FinalCta() {
           <h2 id="cta-title" className="mx-auto max-w-2xl text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
             {t.cta.title}
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-xl font-semibold text-pretty text-white">
+          <p className="mx-auto mt-3 max-w-xl text-base font-medium text-pretty text-white">
             {fill(t.cta.subtitle, { days: num(pricing.trialDays) })}
           </p>
           <DownloadButtons tone="inverse" align="center" showMeta={false} className="mt-10" />

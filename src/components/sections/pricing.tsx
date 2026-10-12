@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Bell, Check, Clock, Hospital, Sparkles, User, Users, X } from "lucide-react";
+import { Check, Clock, Sparkles, User, Users, X } from "lucide-react";
 import { Reveal } from "@/components/motion";
 import { buttonVariants } from "@/components/ui/button";
 import { Container, Section, SectionHeader } from "@/components/section";
@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 type Period = "monthly" | "yearly";
 
-const PLAN_ICONS: Record<PlanId, typeof User> = { basic: User, pro: Users, clinic: Hospital };
+const PLAN_ICONS: Record<PlanId, typeof User> = { basic: User, pro: Users };
 
 export function Pricing() {
   const { t, num } = useI18n();
@@ -58,7 +58,7 @@ export function Pricing() {
           ))}
         </fieldset>
 
-        <ul className="mx-auto mt-14 grid max-w-6xl items-stretch gap-6 lg:grid-cols-3 lg:gap-5">
+        <ul className="mx-auto mt-14 grid max-w-4xl items-stretch gap-6 lg:grid-cols-2">
           {plans.map((plan, i) => (
             <Reveal as="li" key={plan.id} delay={i * 0.06} className="flex">
               <PlanCard plan={plan} period={period} />
@@ -67,7 +67,7 @@ export function Pricing() {
         </ul>
 
         {/* Every plan includes */}
-        <div className="mx-auto mt-10 flex max-w-6xl flex-col items-center gap-3 rounded-2xl border border-border bg-card px-6 py-5 text-sm sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8">
+        <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center gap-3 rounded-2xl border border-border bg-card px-6 py-5 text-sm sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-8">
           <p className="font-semibold text-foreground">{t.pricing.allIncludeTitle}</p>
           <ul className="flex flex-wrap justify-center gap-x-6 gap-y-2">
             {t.pricing.allInclude.map((item) => (
@@ -88,7 +88,7 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
   const copy = t.pricing.plans[plan.id];
   const Icon = PLAN_ICONS[plan.id];
   const popular = !!plan.popular;
-  const soon = plan.cta === "notify";
+  const soon = plan.cta === "soon";
   const yearly = period === "yearly";
 
   return (
@@ -173,13 +173,10 @@ function PlanCard({ plan, period }: { plan: Plan; period: Period }) {
           {fill(t.pricing.ctaTrial, { days: num(pricing.trialDays) })}
         </Link>
       ) : soon ? (
-        <a
-          href={`mailto:${site.supportEmail}?subject=${encodeURIComponent(t.pricing.notifySubject)}`}
-          className={buttonVariants({ variant: "secondary", size: "lg", className: "mt-6 w-full" })}
-        >
-          <Bell aria-hidden="true" />
-          {t.pricing.ctaNotify}
-        </a>
+        <span className="mt-6 flex h-14 w-full cursor-default items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-muted text-base font-medium text-muted-foreground">
+          <Clock className="size-5" aria-hidden="true" />
+          {t.pricing.comingSoon}
+        </span>
       ) : (
         <a
           href={`mailto:${site.supportEmail}?subject=${encodeURIComponent(t.pricing.contactSubject)}`}

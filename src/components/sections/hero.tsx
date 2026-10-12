@@ -31,7 +31,7 @@ export function Hero() {
           >
             {t.hero.titleA} <span className="text-brand-gradient">{t.hero.titleB}</span>
           </h1>
-          <p className="mt-6 max-w-lg text-lg leading-relaxed text-pretty text-muted-foreground">{t.hero.subtitle}</p>
+          <p className="mt-5 max-w-md text-base leading-relaxed text-pretty text-muted-foreground">{t.hero.subtitle}</p>
           <DownloadButtons className="mt-9" />
         </div>
 

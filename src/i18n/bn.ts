@@ -27,14 +27,6 @@ export const bn: Dictionary = {
     reqWindows: "Windows ১০/১১ (৬৪-বিট)",
     reqMac: "macOS ১২+ (Apple Silicon ও Intel)",
     trial: "{days} দিনের ফ্রি ট্রায়াল — কোনো পেমেন্ট তথ্য লাগবে না",
-    notifyLabel: "Mac ভার্সন তৈরি হলে আমাকে ইমেইল করুন",
-    notifyPlaceholder: "you@clinic.com",
-    notifyButton: "জানিয়ে দিন",
-    notifySending: "পাঠানো হচ্ছে…",
-    notifySuccess: "ধন্যবাদ! macOS ভার্সন তৈরি হলেই আমরা আপনাকে ইমেইল করব।",
-    notifyMailto: "আপনার ইমেইল অ্যাপ খুলবে — শুধু সেন্ড চাপুন।",
-    notifyError: "কিছু একটা সমস্যা হয়েছে। অনুগ্রহ করে আমাদের সরাসরি ইমেইল করুন।",
-    notifyInvalid: "অনুগ্রহ করে একটি সঠিক ইমেইল ঠিকানা দিন।",
     mobileNote:
       "MediDesk একটি ডেস্কটপ অ্যাপ। ইনস্টল করতে আপনার Windows পিসি বা Mac থেকে এই পেজটি খুলুন।",
     allOptions: "সব ডাউনলোড অপশন",
@@ -43,8 +35,7 @@ export const bn: Dictionary = {
     eyebrow: "বাংলাদেশের ডাক্তারদের জন্য প্র্যাকটিস ম্যানেজমেন্ট",
     titleA: "চেম্বার চালান,",
     titleB: "কাগজপত্র নয়।",
-    subtitle:
-      "রোগী, অ্যাপয়েন্টমেন্ট, প্রেসক্রিপশন আর বিলিং — সব এক জায়গায়, একটি শান্ত ডেস্কটপ অ্যাপে। ডাক্তার ও ছোট ক্লিনিকের জন্য তৈরি, বাংলা ও ইংরেজিতে।",
+    subtitle: "রোগী, অ্যাপয়েন্টমেন্ট, প্রেসক্রিপশন ও বিলিং — এক ডেস্কটপ অ্যাপে, বাংলা ও ইংরেজিতে।",
     mockupLabel:
       "MediDesk ড্যাশবোর্ডের চিত্র: আজকের রোগীর সারি, পরিসংখ্যান কার্ড ও আয়ের চার্ট।",
   },
@@ -98,8 +89,7 @@ export const bn: Dictionary = {
   features: {
     eyebrow: "ফিচার",
     title: "চেম্বার চালাতে যা যা লাগে",
-    subtitle:
-      "সকালের প্রথম রোগী থেকে রাতের শেষ রসিদ পর্যন্ত — একটি অ্যাপ, কোনো খাতা বা স্প্রেডশিট নয়।",
+    subtitle: "প্রথম রোগী থেকে শেষ রসিদ — সব এক অ্যাপে।",
     items: [
       {
         title: "রোগী",
@@ -138,8 +128,7 @@ export const bn: Dictionary = {
   rx: {
     eyebrow: "প্রেসক্রিপশন",
     title: "৩০ সেকেন্ডে প্রেসক্রিপশন",
-    subtitle:
-      "আপনার নিজের প্যাডে পরিষ্কার, সহজে পড়া যায় এমন প্রেসক্রিপশন — একই ওষুধ দিনে চল্লিশবার হাতে লেখার দিন শেষ।",
+    subtitle: "আপনার নিজের প্যাডে পরিষ্কার প্রেসক্রিপশন।",
     steps: [
       {
         title: "সারি থেকে রোগী বেছে নিন",
@@ -194,8 +183,7 @@ export const bn: Dictionary = {
   security: {
     eyebrow: "নিরাপত্তা ও গোপনীয়তা",
     title: "চিকিৎসা-তথ্য, সংবেদনশীল তথ্য হিসেবেই",
-    subtitle:
-      "রোগীর রেকর্ড সবচেয়ে ব্যক্তিগত তথ্যগুলোর একটি। MediDesk শুরু থেকেই এটি মাথায় রেখে তৈরি।",
+    subtitle: "রোগীর রেকর্ড ব্যক্তিগত। MediDesk সেভাবেই তৈরি।",
     items: [
       {
         title: "ক্লাউড সিঙ্ক, প্রতিটি ক্লিনিক আলাদা",
@@ -219,8 +207,8 @@ export const bn: Dictionary = {
   },
   pricing: {
     eyebrow: "মূল্য",
-    title: "প্রতিটি চেম্বার ও ক্লিনিকের জন্য প্ল্যান",
-    subtitle: "{days} দিন ফ্রি ব্যবহার করুন — কোনো পেমেন্ট তথ্য লাগবে না। যেকোনো সময় প্ল্যান বদলাতে পারবেন।",
+    title: "আপনার চেম্বারের জন্য সহজ মূল্য",
+    subtitle: "{days} দিন ফ্রি। কোনো পেমেন্ট তথ্য লাগবে না।",
     monthly: "মাসিক",
     yearly: "বার্ষিক",
     billingLabel: "বিলিং মেয়াদ",
@@ -230,35 +218,32 @@ export const bn: Dictionary = {
     save: "{amount} সাশ্রয়",
     billedMonthly: "প্রতি মাসে বিকাশে পেমেন্ট",
     perMonthEquivalent: "মাসে মাত্র {amount}, বছরে একবার পেমেন্ট",
-    popular: "সবচেয়ে জনপ্রিয়",
+    popular: "এখনই পাওয়া যাচ্ছে",
     custom: "কাস্টম",
     customNote: "আপনার ক্লিনিকের আকার অনুযায়ী মূল্য",
     ctaTrial: "{days} দিনের ফ্রি ট্রায়াল শুরু করুন",
     ctaContact: "যোগাযোগ করুন",
     contactSubject: "MediDesk Clinic plan",
     comingSoon: "শীঘ্রই আসছে",
-    availableSoon: "শীঘ্রই চালু হচ্ছে",
-    ctaNotify: "আমাকে জানান",
-    notifySubject: "Notify me when MediDesk Pro launches",
+    availableSoon: "পরিকল্পিত মূল্য · শীঘ্রই চালু হচ্ছে",
     includesTitle: "যা যা পাচ্ছেন",
     notIncluded: "অন্তর্ভুক্ত নয়",
     soonLabel: "শীঘ্রই আসছে",
     plans: {
-      basic: { name: "বেসিক", desc: "নিজের চেম্বার চালানো একজন ডাক্তারের জন্য।" },
+      basic: { name: "বেসিক", desc: "নিজের চেম্বার চালাতে একজন ডাক্তারের যা যা দরকার, সবই।" },
       pro: { name: "প্রো", desc: "আপনার চেম্বার অনলাইনে নিন: ভিডিও কনসালটেশন, নিজের পেজ ও অনলাইন বুকিং।" },
-      clinic: { name: "ক্লিনিক", desc: "বড় টিমসহ হাসপাতাল ও একাধিক ডাক্তারের ক্লিনিকের জন্য।" },
     },
     features: {
-      doctors1: "১ জন ডাক্তার",
-      doctorsUnlimited: "সীমাহীন ডাক্তার",
-      device1: "১টি ডিভাইস",
-      devicesUnlimited: "সীমাহীন ডিভাইস",
+      oneDoctor: "১টি কম্পিউটারে ১ জন ডাক্তার",
       patients: "সীমাহীন রোগী",
-      core: "অ্যাপয়েন্টমেন্ট, প্রেসক্রিপশন ও বিলিং",
-      bangla: "বাংলায় প্রিন্ট",
-      staff: "রিসেপশনিস্ট ও স্টাফ অ্যাকাউন্ট",
-      setup: "সরাসরি সেটআপ ও স্টাফ প্রশিক্ষণ",
-      migration: "পুরনো সিস্টেম থেকে ডেটা ইমপোর্ট",
+      core: "রোগী, অ্যাপয়েন্টমেন্ট, কনসালটেশন, প্রেসক্রিপশন, বিলিং ও রিপোর্ট",
+      bangla: "বাংলায় অ্যাপ ও প্রিন্ট",
+      offline: "অফলাইনে চলে, পরে সিঙ্ক হয়",
+      templates: "প্রেসক্রিপশন টেমপ্লেট",
+      advancedReports: "অ্যাডভান্সড রিপোর্ট",
+      excelExport: "Excel এক্সপোর্ট",
+      noBranding: "প্রিন্টে MediDesk ব্র্যান্ডিং নেই",
+      prioritySupport: "অগ্রাধিকার WhatsApp সাপোর্ট",
       everythingInBasic: "বেসিক প্ল্যানের সবকিছু",
       videoConsultation: "ভিডিও কনসালটেশন",
       landingPage: "নিজস্ব ল্যান্ডিং পেজ",
@@ -276,7 +261,7 @@ export const bn: Dictionary = {
   faq: {
     eyebrow: "প্রশ্নোত্তর",
     title: "আপনার প্রশ্ন, আমাদের উত্তর",
-    subtitle: "যা খুঁজছেন তা পাচ্ছেন না? যোগাযোগ করুন — একজন মানুষই উত্তর দেবেন।",
+    subtitle: "উত্তর পাননি? যোগাযোগ করুন।",
     macAvailable: "এটি macOS ১২ বা তার পরের ভার্সনে, Apple Silicon ও Intel — দুই ধরনের Mac-এই চলে।",
     macSoon: "macOS ভার্সন (macOS ১২ বা পরের, Apple Silicon ও Intel) শীঘ্রই আসছে।",
     items: [
@@ -286,7 +271,7 @@ export const bn: Dictionary = {
       },
       {
         q: "ইন্টারনেট ছাড়া (অফলাইনে) চলে কি?",
-        a: "এখনো না। ডেটা সিঙ্ক করার জন্য বর্তমানে MediDesk-এ ইন্টারনেট সংযোগ লাগে। অফলাইন মোড শীঘ্রই আসছে।",
+        a: "হ্যাঁ। ইন্টারনেট সংযোগ ছাড়াও MediDesk চলে, আর সংযোগ ফিরে এলে আপনার ডেটা সিঙ্ক হয়ে যায়।",
       },
       {
         q: "কোন কোন মাধ্যমে পেমেন্ট করা যায়?",
@@ -314,11 +299,19 @@ export const bn: Dictionary = {
       },
     ],
   },
+  stats: {
+    label: "সংখ্যায় MediDesk",
+    labels: {
+      doctors: "ডাক্তার",
+      downloads: "ডাউনলোড",
+      patients: "রোগী",
+      clinics: "ক্লিনিক",
+    },
+  },
   install: {
     eyebrow: "ইনস্টলেশন",
     title: "৪টি সহজ ধাপে ইনস্টল করুন",
-    subtitle:
-      "নতুন অ্যাপের ক্ষেত্রে Windows একটি সতর্কবার্তা দেখায়। এটি স্বাভাবিক — কোথায় ক্লিক করবেন নিচে দেখানো হলো।",
+    subtitle: "নতুন অ্যাপে Windows সতর্কবার্তা দেখায়। কোথায় ক্লিক করবেন দেখুন।",
     steps: [
       {
         title: "“More info”-তে ক্লিক করুন",
@@ -344,7 +337,7 @@ export const bn: Dictionary = {
   },
   cta: {
     title: "আপনার চেম্বারের দিনটা হোক আরও স্বস্তির।",
-    subtitle: "MediDesk ডাউনলোড করুন এবং {days} দিন সব ফিচার ফ্রি ব্যবহার করুন।",
+    subtitle: "{days} দিন সব ফিচার ফ্রি ব্যবহার করুন।",
   },
   footer: {
     links: {
@@ -356,7 +349,7 @@ export const bn: Dictionary = {
   },
   downloadPage: {
     title: "MediDesk ডাউনলোড করুন",
-    subtitle: "আপনার কম্পিউটারে MediDesk ইনস্টল করুন এবং {days} দিনের ফ্রি ট্রায়াল শুরু করুন।",
+    subtitle: "MediDesk ইনস্টল করুন এবং {days} দিনের ফ্রি ট্রায়াল শুরু করুন।",
     latest: "সর্বশেষ ভার্সন {version} · প্রকাশ {date}",
     releaseNotes: "রিলিজ নোট",
     file: "ফাইল",

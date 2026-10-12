@@ -27,18 +27,8 @@ export interface DownloadsConfig {
   releaseNotesUrl: string;
   windows: PlatformDownload;
   mac: PlatformDownload & {
-    /** When false, the macOS button shows "Coming soon" and a "Notify me" field. */
+    /** When false, the macOS button is a "Coming soon" label instead of a download link. */
     available: boolean;
-  };
-  /**
-   * Where "Notify me" submissions go. Leave `endpoint` empty to fall back to
-   * opening the visitor's email app addressed to `fallbackEmail`.
-   * Any form service that accepts a POST with an `email` field works
-   * (Formspree, Basin, Getform, a Google Apps Script URL, …).
-   */
-  notify: {
-    endpoint: string;
-    fallbackEmail: string;
   };
 }
 
@@ -58,9 +48,5 @@ export const downloads: DownloadsConfig = {
     size: "112 MB",
     fileName: "MediDesk-1.0.0-universal.dmg",
     sha256: "REPLACE_WITH_SHA256_OF_MAC_INSTALLER",
-  },
-  notify: {
-    endpoint: "",
-    fallbackEmail: "hello@medidesk.app",
   },
 };

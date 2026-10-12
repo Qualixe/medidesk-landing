@@ -2,6 +2,7 @@
 
 import { useId, useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Reveal } from "@/components/motion";
 import { Container, Section, SectionHeader } from "@/components/section";
 import { downloads } from "@/config/downloads";
 import { site } from "@/config/site";
@@ -21,23 +22,18 @@ export function Faq() {
 
   return (
     <Section id="faq" aria-labelledby="faq-title">
-      <Container className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <SectionHeader
-          id="faq-title"
-          align="start"
-          eyebrow={t.faq.eyebrow}
-          title={t.faq.title}
-          subtitle={t.faq.subtitle}
-          className="lg:sticky lg:top-28 lg:self-start"
-        />
+      <Container className="flex flex-col gap-10 lg:gap-12">
+        <Reveal>
+          <SectionHeader id="faq-title" eyebrow={t.faq.eyebrow} title={t.faq.title} subtitle={t.faq.subtitle} />
+        </Reveal>
 
-        <div className="divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
+        <div className="mx-auto w-full max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">
           {t.faq.items.map((item, i) => {
             const open = openIndex === i;
             const btnId = `${baseId}-q${i}`;
             const panelId = `${baseId}-a${i}`;
             return (
-              <div key={item.q}>
+              <Reveal key={item.q} delay={i * 0.05}>
                 <h3>
                   <button
                     id={btnId}
@@ -50,7 +46,7 @@ export function Faq() {
                     <span className="flex-1">{item.q}</span>
                     <ChevronDown
                       className={cn(
-                        "size-5 shrink-0 text-muted-foreground transition-transform duration-200",
+                        "size-5 shrink-0 text-muted-foreground transition-transform duration-300 ease-out",
                         open && "rotate-180 text-primary-text",
                       )}
                       aria-hidden="true"
@@ -63,17 +59,22 @@ export function Faq() {
                   aria-labelledby={btnId}
                   inert={!open}
                   className={cn(
-                    "grid transition-[grid-template-rows] duration-200 ease-out",
+                    "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
                     open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
                   )}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground sm:px-6">
+                    <p
+                      className={cn(
+                        "px-5 pb-5 text-sm leading-relaxed text-muted-foreground transition-[opacity,transform] duration-300 ease-out sm:px-6",
+                        open ? "translate-y-0 opacity-100" : "-translate-y-1 opacity-0",
+                      )}
+                    >
                       {fill(item.a, vars)}
                     </p>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>

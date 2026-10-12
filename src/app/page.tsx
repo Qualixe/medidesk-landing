@@ -6,6 +6,7 @@ import { InstallSteps } from "@/components/sections/install-steps";
 import { PrescriptionShowcase } from "@/components/sections/prescription-showcase";
 import { Pricing } from "@/components/sections/pricing";
 import { Security } from "@/components/sections/security";
+import { StatsRibbon } from "@/components/sections/stats-ribbon";
 import { TrustStrip } from "@/components/sections/trust-strip";
 import { downloads } from "@/config/downloads";
 import { availablePlans } from "@/config/pricing";
@@ -37,8 +38,9 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }}
       />
       <Hero />
+      <StatsRibbon />
       <InstallSteps />
-      <TrustStrip />
+     {/* <TrustStrip /> */}
       {/* <Features /> */}
       <PrescriptionShowcase />
 

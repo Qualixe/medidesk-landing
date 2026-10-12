@@ -16,6 +16,7 @@ import {
   Users,
 } from "lucide-react";
 import { LogoMark } from "@/components/brand/logo";
+import { downloads } from "@/config/downloads";
 import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 
@@ -183,19 +184,31 @@ export function AppMockup() {
 }
 
 function TitleBar({ title }: { title: string }) {
+  // Mac visitors get a Mac-style window only once there is a Mac build; until then everyone sees Windows.
+  const macReady = downloads.mac.available;
   return (
     <div className="relative flex h-8 items-center border-b border-border bg-muted px-3">
       {/* macOS: traffic lights on the left */}
-      <div className="hidden items-center gap-1.5 os-mac:flex">
-        <span className="size-2.5 rounded-full bg-[#ff5f57]" />
-        <span className="size-2.5 rounded-full bg-[#febc2e]" />
-        <span className="size-2.5 rounded-full bg-[#28c840]" />
-      </div>
-      <p className="truncate text-[0.6875rem] font-medium text-muted-foreground os-mac:absolute os-mac:inset-x-20 os-mac:text-center">
+      {macReady && (
+        <div className="hidden items-center gap-1.5 os-mac:flex">
+          <span className="size-2.5 rounded-full bg-[#ff5f57]" />
+          <span className="size-2.5 rounded-full bg-[#febc2e]" />
+          <span className="size-2.5 rounded-full bg-[#28c840]" />
+        </div>
+      )}
+      <p
+        className={cn(
+          "truncate text-[0.6875rem] font-medium text-muted-foreground",
+          macReady && "os-mac:absolute os-mac:inset-x-20 os-mac:text-center",
+        )}
+      >
         {title}
       </p>
       {/* Windows: minimise / maximise / close on the right */}
-      <div className="-mr-3 ml-auto flex h-full items-stretch text-muted-foreground os-mac:hidden" aria-hidden="true">
+      <div
+        className={cn("-mr-3 ml-auto flex h-full items-stretch text-muted-foreground", macReady && "os-mac:hidden")}
+        aria-hidden="true"
+      >
         <span className="flex w-10 items-center justify-center">
           <svg viewBox="0 0 10 10" className="size-2.5"><path d="M0 5h10" stroke="currentColor" /></svg>
         </span>

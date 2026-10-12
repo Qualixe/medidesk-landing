@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Check, Monitor } from "lucide-react";
 import { AppleIcon, WindowsIcon } from "@/components/brand/os-icons";
 import { buttonVariants } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { downloads } from "@/config/downloads";
 import { pricing } from "@/config/pricing";
 import { fill, useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
-import { NotifyForm } from "./notify-form";
 
 type Tone = "default" | "inverse";
 
@@ -37,6 +35,7 @@ export function DownloadButtons({
   const { t } = useI18n();
   const inverse = tone === "inverse";
   const center = align === "center";
+  const macReady = downloads.mac.available;
 
   // Two equal columns (each as wide as the widest button), so both buttons are always the same size.
   const row = cn("grid items-start gap-3", !stack && "sm:w-fit sm:grid-cols-2");
@@ -54,17 +53,19 @@ export function DownloadButtons({
         {t.download.mobileNote}
       </p>
 
-      {/* Windows (and unknown) visitors */}
-      <div className={cn(row, "os-mac:hidden")}>
+      {/* Windows (and unknown) visitors — and everyone, while the Mac build isn't out */}
+      <div className={cn(row, macReady && "os-mac:hidden")}>
         <WindowsButton tone={tone} width={width} primary />
         <MacButton tone={tone} width={width} primary={false} />
       </div>
 
-      {/* macOS visitors */}
-      <div className={cn(row, "hidden os-mac:grid")}>
-        <MacButton tone={tone} width={width} primary />
-        <WindowsButton tone={tone} width={width} primary={false} />
-      </div>
+      {/* macOS visitors, once there is a Mac build to download */}
+      {macReady && (
+        <div className={cn(row, "hidden os-mac:grid")}>
+          <MacButton tone={tone} width={width} primary />
+          <WindowsButton tone={tone} width={width} primary={false} />
+        </div>
+      )}
 
       {showMeta && <DownloadMeta tone={tone} center={center} />}
     </div>
@@ -90,7 +91,6 @@ function WindowsButton({ tone, primary, width }: { tone: Tone; primary: boolean;
 
 function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; width: string }) {
   const { t } = useI18n();
-  const [open, setOpen] = useState(false);
 
   if (downloads.mac.available) {
     return (
@@ -108,55 +108,19 @@ function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; wid
     );
   }
 
-  // Not released yet: never a dead link. Mac visitors see the notify field straight away;
-  // others can reveal it from the secondary button.
-  if (primary) {
-    return (
-      <div className={cn("flex flex-col gap-3", width)}>
-        <span
-          className={cn(
-            buttonVariants({ variant: tone === "inverse" ? "inverse-outline" : "secondary", size: "lg" }),
-            "pointer-events-none cursor-default",
-          )}
-        >
-          <AppleIcon />
-          {t.download.macSoon}
-        </span>
-        <NotifyPanel tone={tone} />
-      </div>
-    );
-  }
-
+  // Not released yet: a label, not a link, so there is never a dead download.
   return (
-    <div className={cn("flex flex-col gap-3", width)}>
-      <button
-        type="button"
-        aria-expanded={open}
-        onClick={() => setOpen((v) => !v)}
-        className={buttonVariants({
-          variant: tone === "inverse" ? "inverse-outline" : "secondary",
-          size: "lg",
-          className: "w-full",
-        })}
-      >
-        <AppleIcon />
-        {t.download.macSoon}
-      </button>
-      {open && <NotifyPanel tone={tone} />}
-    </div>
+    <span
+      className={cn(
+        buttonVariants({ variant: tone === "inverse" ? "inverse-outline" : "secondary", size: "lg" }),
+        "pointer-events-none cursor-default",
+        width,
+      )}
+    >
+      <AppleIcon />
+      {t.download.macSoon}
+    </span>
   );
-}
-
-/** On the blue CTA band the form sits on a white panel so its small text stays readable. */
-function NotifyPanel({ tone }: { tone: Tone }) {
-  if (tone === "inverse") {
-    return (
-      <div className="rounded-xl bg-card p-3 text-left shadow-lifted">
-        <NotifyForm />
-      </div>
-    );
-  }
-  return <NotifyForm className="text-left" />;
 }
 
 function buttonVariant(tone: Tone, primary: boolean) {

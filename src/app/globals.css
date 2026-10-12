@@ -234,6 +234,15 @@
   background-image: linear-gradient(100deg, #5af4e8 0%, #30d3f6 45%, #5cb8ff 100%);
 }
 
+/*
+ * Count-up numbers (stats ribbon). The final number is in the HTML for search
+ * engines and no-JS visitors; with scripts on it stays hidden until the count
+ * starts from 0, so the final value never flashes first.
+ */
+[data-js] [data-countup="pending"] {
+  opacity: 0;
+}
+
 /* Faint grid used behind the hero and on the CTA band. */
 .bg-grid {
   background-image:
