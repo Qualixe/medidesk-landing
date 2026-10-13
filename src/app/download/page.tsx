@@ -4,7 +4,7 @@ import { DownloadPage } from "@/components/download/download-page";
 export const metadata: Metadata = {
   title: "Download",
   description:
-    "Download MediDesk for Windows (macOS coming soon). Installation steps and system requirements.",
+    "Download MediDesk for Windows and macOS. Installation steps and system requirements.",
   alternates: { canonical: "/download" },
   openGraph: { url: "/download" },
 };

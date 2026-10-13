@@ -4,6 +4,7 @@ import { HtmlAttributes } from "@/components/html-attributes";
 import { MotionProvider } from "@/components/motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { WhatsAppChat } from "@/components/whatsapp-chat";
 import { site } from "@/config/site";
 import { bootScript } from "@/lib/boot-script";
 import "./globals.css";
@@ -85,6 +86,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <SiteFooter />
+          <WhatsAppChat />
         </MotionProvider>
       </body>
     </html>

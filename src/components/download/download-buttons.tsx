@@ -142,7 +142,12 @@ function DownloadMeta({ tone, center }: { tone: Tone; center: boolean }) {
       <p>
         {fill(t.download.version, { version: num(downloads.version) })} · {t.download.reqWindows} ·{" "}
         {num(downloads.windows.size)}
-        {downloads.mac.available && <> · {t.download.reqMac}</>}
+        {downloads.mac.available && (
+          <>
+            {" "}
+            · {t.download.reqMac} · {num(downloads.mac.size)}
+          </>
+        )}
       </p>
     </div>
   );

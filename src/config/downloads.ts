@@ -3,7 +3,7 @@
  * Update this file for each release — the hero, pricing card, final CTA,
  * footer and /download page all read from it.
  *
- * PLACEHOLDER: replace the URLs and sizes with your real release assets.
+ * Both installers are served from the Railway download service.
  */
 
 export type Platform = "windows" | "mac";
@@ -37,9 +37,9 @@ export const downloads: DownloadsConfig = {
     fileName: "MediDesk Setup.exe",
   },
   mac: {
-    available: false,
-    url: "https://github.com/your-org/medidesk/releases/latest/download/MediDesk-1.0.0-universal.dmg",
-    size: "112 MB",
-    fileName: "MediDesk-1.0.0-universal.dmg",
+    available: true,
+    url: "https://medidesk-downloads-production.up.railway.app/download/mac",
+    size: "221 MB",
+    fileName: "MediDesk.dmg",
   },
 };

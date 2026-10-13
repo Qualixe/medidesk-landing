@@ -362,6 +362,16 @@ export const bn: Dictionary = {
     requirementsTitle: "Windows-এর প্রয়োজনীয়তা",
     help: "আটকে গেছেন? {email} ঠিকানায় ইমেইল বা {whatsapp} নম্বরে WhatsApp করুন — সেটআপে আমরা সাহায্য করব।",
   },
+  chat: {
+    open: "WhatsApp-এ আমাদের সাথে চ্যাট করুন",
+    close: "চ্যাট বন্ধ করুন",
+    title: "MediDesk সাপোর্ট",
+    status: "এক কর্মদিবসের মধ্যে উত্তর দিই",
+    greeting: "আসসালামু আলাইকুম 👋",
+    question: "MediDesk নিয়ে আপনাকে কীভাবে সাহায্য করতে পারি?",
+    start: "WhatsApp-এ চ্যাট শুরু করুন",
+    prefill: "আসসালামু আলাইকুম! MediDesk নিয়ে আমার একটি প্রশ্ন আছে।",
+  },
   cta: {
     title: "আপনার চেম্বারের দিনটা হোক আরও স্বস্তির।",
     subtitle: "{days} দিন সব ফিচার ফ্রি ব্যবহার করুন।",

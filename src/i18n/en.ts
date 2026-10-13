@@ -365,6 +365,16 @@ export const en = {
     requirementsTitle: "Windows requirements",
     help: "Stuck? Email {email} or WhatsApp {whatsapp} and we'll help you get set up.",
   },
+  chat: {
+    open: "Chat with us on WhatsApp",
+    close: "Close chat",
+    title: "MediDesk Support",
+    status: "Replies within a working day",
+    greeting: "Hi there 👋",
+    question: "How can we help you with MediDesk?",
+    start: "Start chat on WhatsApp",
+    prefill: "Hi! I have a question about MediDesk.",
+  },
   cta: {
     title: "Give your chamber a calmer day.",
     subtitle: "Try every feature free for {days} days.",
