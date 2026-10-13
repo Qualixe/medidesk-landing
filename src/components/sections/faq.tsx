@@ -24,7 +24,7 @@ export function Faq() {
     <Section id="faq" aria-labelledby="faq-title">
       <Container className="flex flex-col gap-10 lg:gap-12">
         <Reveal>
-          <SectionHeader id="faq-title" eyebrow={t.faq.eyebrow} title={t.faq.title} subtitle={t.faq.subtitle} />
+          <SectionHeader id="faq-title" eyebrow={t.faq.eyebrow} title={t.faq.title} />
         </Reveal>
 
         <div className="mx-auto w-full max-w-3xl divide-y divide-border rounded-2xl border border-border bg-card shadow-soft">

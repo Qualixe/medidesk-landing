@@ -12,6 +12,8 @@ export const site = {
   /** How the number is displayed on the page. */
   whatsappDisplay: "+880 1318-552266",
   companyName: "MediDesk",
+  /** Google Analytics 4 measurement ID. Only loaded in production builds. */
+  gaId: "G-QMJ86SZ3VH",
 } as const;
 
 export const whatsappUrl = `https://wa.me/${site.whatsappNumber}`;

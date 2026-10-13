@@ -192,7 +192,12 @@ function InstallSteps({
   const { num } = useI18n();
   const NoteIcon = noteTone === "warning" ? ShieldAlert : Info;
   return (
-    <article className={cn("rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8", className)}>
+    <article
+      className={cn(
+        "row-span-3 grid grid-rows-subgrid gap-0 rounded-2xl border border-border bg-card p-6 shadow-soft sm:p-8",
+        className,
+      )}
+    >
       <h3 className="flex items-center gap-2 text-base font-semibold text-foreground">
         {icon}
         {title}
@@ -209,7 +214,7 @@ function InstallSteps({
       </ol>
       <p
         className={cn(
-          "mt-6 flex gap-2.5 rounded-lg border p-3.5 text-[0.8125rem] leading-relaxed",
+          "mt-6 flex h-[calc(100%-1.5rem)] gap-2.5 rounded-lg border p-3.5 text-[0.8125rem] leading-relaxed",
           noteTone === "warning"
             ? "border-warning/25 bg-warning/5 text-warning-text"
             : "border-info/25 bg-info/5 text-info-text",

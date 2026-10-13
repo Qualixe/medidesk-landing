@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import { HtmlAttributes } from "@/components/html-attributes";
 import { MotionProvider } from "@/components/motion";
@@ -89,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <WhatsAppChat />
         </MotionProvider>
       </body>
+      {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={site.gaId} />}
     </html>
   );
 }

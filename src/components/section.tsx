@@ -28,7 +28,7 @@ export function SectionHeader({
   align = "center",
   className,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   subtitle?: string;
   id?: string;
@@ -37,8 +37,8 @@ export function SectionHeader({
 }) {
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
-      <Eyebrow>{eyebrow}</Eyebrow>
-      <h2 id={id} className="mt-3 text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl">
+      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      <h2 id={id} className={cn("text-3xl font-semibold tracking-tight text-balance text-foreground sm:text-4xl", eyebrow && "mt-3")}>
         {title}
       </h2>
       {subtitle && (

@@ -29,7 +29,7 @@ export function Hero() {
             id="hero-title"
             className="mt-6 text-[2.5rem] font-semibold leading-[1.08] tracking-[-0.025em] text-balance text-foreground sm:text-5xl lg:text-[3.5rem]"
           >
-            {t.hero.titleA} <span className="text-brand-gradient">{t.hero.titleB}</span>
+            {t.hero.titleA} <span className="text-brand-gradient sm:block">{t.hero.titleB}</span>
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed text-pretty text-muted-foreground">{t.hero.subtitle}</p>
           <DownloadButtons className="mt-9" />

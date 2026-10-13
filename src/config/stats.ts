@@ -14,8 +14,8 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { key: "doctors", value: 1200, suffix: "+" },
-  { key: "downloads", value: 5400, suffix: "+" },
-  { key: "patients", value: 85000, suffix: "+" },
-  { key: "clinics", value: 320, suffix: "+" },
+  { key: "doctors", value: 60, suffix: "+" },
+  { key: "downloads", value: 250, suffix: "+" },
+  { key: "patients", value: 4500, suffix: "+" },
+  { key: "clinics", value: 45, suffix: "+" },
 ];

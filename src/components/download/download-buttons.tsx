@@ -139,16 +139,6 @@ function DownloadMeta({ tone, center }: { tone: Tone; center: boolean }) {
         <Check className={cn("size-4", inverse ? "text-white" : "text-primary")} aria-hidden="true" />
         {fill(t.download.trial, { days: num(pricing.trialDays) })}
       </p>
-      <p>
-        {fill(t.download.version, { version: num(downloads.version) })} · {t.download.reqWindows} ·{" "}
-        {num(downloads.windows.size)}
-        {downloads.mac.available && (
-          <>
-            {" "}
-            · {t.download.reqMac} · {num(downloads.mac.size)}
-          </>
-        )}
-      </p>
     </div>
   );
 }

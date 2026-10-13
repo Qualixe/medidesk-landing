@@ -24,9 +24,7 @@ export function Pricing() {
       <Container>
         <SectionHeader
           id="pricing-title"
-          eyebrow={t.pricing.eyebrow}
           title={t.pricing.title}
-          subtitle={fill(t.pricing.subtitle, { days: num(pricing.trialDays) })}
         />
 
         {/* Monthly / Yearly — native radios, so arrow keys and screen readers just work */}
