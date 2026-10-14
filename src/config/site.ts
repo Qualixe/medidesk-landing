@@ -14,6 +14,8 @@ export const site = {
   companyName: "MediDesk",
   /** Google Analytics 4 measurement ID. Only loaded in production builds. */
   gaId: "G-QMJ86SZ3VH",
+  /** Meta (Facebook) Pixel ID. Only loaded in production builds. */
+  metaPixelId: "1137601425458727",
 } as const;
 
 export const whatsappUrl = `https://wa.me/${site.whatsappNumber}`;

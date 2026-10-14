@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter, Noto_Sans_Bengali } from "next/font/google";
 import { HtmlAttributes } from "@/components/html-attributes";
+import { MetaPixel } from "@/components/meta-pixel";
 import { MotionProvider } from "@/components/motion";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -88,6 +89,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <SiteFooter />
           <WhatsAppChat />
+          {process.env.NODE_ENV === "production" && <MetaPixel pixelId={site.metaPixelId} />}
         </MotionProvider>
       </body>
       {process.env.NODE_ENV === "production" && <GoogleAnalytics gaId={site.gaId} />}
