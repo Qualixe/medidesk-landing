@@ -8,6 +8,7 @@ import { downloads, type PlatformDownload } from "@/config/downloads";
 import { pricing } from "@/config/pricing";
 import { site, whatsappUrl } from "@/config/site";
 import { fill, useI18n } from "@/i18n";
+import { trackDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 export function DownloadPage() {
@@ -41,7 +42,7 @@ export function DownloadPage() {
             reqs={d.winReqs}
             info={downloads.windows}
             action={
-              <a href={downloads.windows.url} className={buttonVariants({ size: "lg", className: "w-full" })}>
+              <a href={downloads.windows.url} onClick={() => trackDownload("windows")} className={buttonVariants({ size: "lg", className: "w-full" })}>
                 <WindowsIcon />
                 {t.download.forWindows}
               </a>
@@ -56,7 +57,7 @@ export function DownloadPage() {
             available={macReady}
             action={
               macReady ? (
-                <a href={downloads.mac.url} className={buttonVariants({ size: "lg", className: "w-full" })}>
+                <a href={downloads.mac.url} onClick={() => trackDownload("mac")} className={buttonVariants({ size: "lg", className: "w-full" })}>
                   <AppleIcon />
                   {t.download.forMac}
                 </a>

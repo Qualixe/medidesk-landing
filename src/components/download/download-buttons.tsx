@@ -6,6 +6,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { downloads } from "@/config/downloads";
 import { pricing } from "@/config/pricing";
 import { fill, useI18n } from "@/i18n";
+import { trackDownload } from "@/lib/analytics";
 import { cn } from "@/lib/utils";
 
 type Tone = "default" | "inverse";
@@ -77,6 +78,7 @@ function WindowsButton({ tone, primary, width }: { tone: Tone; primary: boolean;
   return (
     <a
       href={downloads.windows.url}
+      onClick={() => trackDownload("windows")}
       className={buttonVariants({
         variant: buttonVariant(tone, primary),
         size: "lg",
@@ -96,6 +98,7 @@ function MacButton({ tone, primary, width }: { tone: Tone; primary: boolean; wid
     return (
       <a
         href={downloads.mac.url}
+        onClick={() => trackDownload("mac")}
         className={buttonVariants({
           variant: buttonVariant(tone, primary),
           size: "lg",
